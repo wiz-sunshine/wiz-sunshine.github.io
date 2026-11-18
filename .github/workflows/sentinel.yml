@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - name: Medir y mandar
         env:
           SENTINEL_CLAVE: ${{ secrets.SENTINEL_CLAVE_CI }}
@@ -53,7 +53,8 @@ jobs:
           ev = {"tipo": "reporte", "repo": os.environ["GITHUB_REPOSITORY"], "commit": os.environ["GITHUB_SHA"], "datos": datos}
           req = urllib.request.Request(os.environ["SENTINEL_URL"].rstrip("/") + "/v1/eventos", method="POST",
                                        data=json.dumps({"eventos": [ev]}).encode(),
-                                       headers={"Authorization": "Bearer " + os.environ["SENTINEL_CLAVE"], "Content-Type": "application/json"})
+                                       headers={"Authorization": "Bearer " + os.environ["SENTINEL_CLAVE"], "Content-Type": "application/json",
+                                                "User-Agent": "sentinel-ci/1"})   # Cloudflare bloquea el de Python-urllib
           print(json.dumps(datos, indent=2))
           print(urllib.request.urlopen(req, timeout=20).read().decode())
           PY
