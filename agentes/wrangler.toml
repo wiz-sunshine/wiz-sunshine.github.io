@@ -1,0 +1,10 @@
+# Se despliega con `npx wrangler deploy` desde esta carpeta (necesita una cuenta de Cloudflare con acceso a la
+# zona legios.com.ar). Corre delante de GitHub Pages sólo para vueltito.legios.com.ar.
+name = "vueltito-markdown"
+main = "worker.js"
+compatibility_date = "2026-11-01"
+workers_dev = false
+
+routes = [
+  { pattern = "vueltito.legios.com.ar/*", zone_name = "legios.com.ar" }
+]

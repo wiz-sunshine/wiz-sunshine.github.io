@@ -3,15 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Vueltito · el sistema del negocio, sin vueltas</title>
-<meta name="description" content="Caja, precios y etiquetas, facturas de proveedores por foto, fiado, pedidos y factura electrónica de ARCA para comercios de todos los rubros. Con letra grande y todo con palabras.">
+<title>Vueltito · Sistema de gestión a medida para comercios y cualquier rubro</title>
+<meta name="description" content="Sistema de gestión a medida para comercios y cualquier rubro en Argentina: caja, precios y etiquetas, facturas de proveedores con una foto, fiado, pedidos y factura electrónica de ARCA. Cada negocio tiene su propia versión. Anda en Windows, Mac o Linux.">
+<meta name="keywords" content="sistema de gestión a medida, software a medida, sistema para comercios, sistema para almacén, sistema para consultorios, sistema para laboratorios, sistema para estudios de arquitectura, factura electrónica ARCA">
+<link rel="alternate" type="text/markdown" href="https://vueltito.legios.com.ar/index.md">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <link rel="canonical" href="https://vueltito.legios.com.ar/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon.ico" sizes="48x48">
 <link rel="apple-touch-icon" href="marca/png/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
-<meta property="og:title" content="Vueltito">
-<meta property="og:description" content="El sistema del negocio, sin vueltas: cobrar, poner precios y cargar las facturas de los proveedores con una foto.">
+<meta property="og:title" content="Vueltito · Sistema de gestión a medida para comercios y cualquier rubro">
+<meta property="og:site_name" content="Vueltito">
+<meta property="og:description" content="El sistema del negocio, sin vueltas y a medida: cobrar, poner precios y cargar las facturas de los proveedores con una foto.">
+<meta property="og:image:alt" content="Vueltito, el sistema del negocio, sin vueltas">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://vueltito.legios.com.ar/">
 <meta property="og:image" content="https://vueltito.legios.com.ar/marca/png/og-1200x630.png">
@@ -416,6 +421,14 @@ input.campo:focus{border-color:var(--rosa-viva);box-shadow:0 0 0 4px var(--rosa-
 .globo dd{margin:0;font-weight:600}
 
 /* ---------- preguntas ---------- */
+.rubros-lista{display:grid;gap:14px}
+@media (min-width:640px){.rubros-lista{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1000px){.rubros-lista{grid-template-columns:repeat(4,1fr)}}
+.rubro{position:relative;display:flex;flex-direction:column;gap:8px;padding:24px 24px 56px;border-radius:var(--radio);background:var(--sup);border:1px solid var(--borde);text-decoration:none;transition:border-color .3s,box-shadow .3s}
+.rubro:hover{border-color:var(--borde2);box-shadow:var(--sombra)}
+.rubro p{color:var(--medio);font-size:.95rem;line-height:1.55}
+.rubro .ico{position:absolute;left:24px;bottom:22px;width:18px;height:18px;color:var(--rosa-texto);transition:transform .2s}
+.rubro:hover .ico{transform:translateX(4px)}
 .preguntas{display:grid;gap:0 40px}
 @media (min-width:900px){.preguntas{grid-template-columns:1fr 1fr}}
 .preguntas details{border-bottom:1px solid var(--borde)}
@@ -456,6 +469,7 @@ input.campo:focus{border-color:var(--rosa-viva);box-shadow:0 0 0 4px var(--rosa-
 footer{position:relative;overflow:hidden;padding:40px 0 0}
 footer .env{display:flex;flex-wrap:wrap;gap:12px 32px;align-items:center;justify-content:space-between;color:var(--medio);font-size:.9rem}
 footer a{color:var(--texto)}
+.pie-enlaces{display:flex;flex-wrap:wrap;gap:6px 20px}
 .gigante{display:flex;justify-content:center;margin-top:40px;font-size:clamp(4.5rem,18vw,16rem);margin-bottom:-.12em;user-select:none}
 .gigante .letra{display:inline-block;color:transparent;background:linear-gradient(180deg,var(--chicle),var(--rosa) 80%);-webkit-background-clip:text;background-clip:text;transition:transform .45s cubic-bezier(.2,.8,.2,1.6)}
 .gigante .palabra:hover .letra{transform:translateY(-.04em)}
@@ -681,6 +695,189 @@ a,button,summary,input{touch-action:manipulation;-webkit-tap-highlight-color:tra
   .progreso{display:none}
 }
 </style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://legios.com.ar/#org",
+   "name": "Legios",
+   "url": "https://legios.com.ar/",
+   "logo": "https://vueltito.legios.com.ar/marca/png/icono-512.png",
+   "knowsAbout": [
+    "Sistemas de gestión a medida",
+    "Software a medida para comercios",
+    "Software a medida para profesionales",
+    "Factura electrónica de ARCA"
+   ],
+   "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+54-9-3492-66-5908",
+    "contactType": "sales",
+    "url": "https://wa.me/5493492665908",
+    "areaServed": "AR",
+    "availableLanguage": [
+     "es"
+    ]
+   },
+   "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "AR"
+   }
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://vueltito.legios.com.ar/#web",
+   "url": "https://vueltito.legios.com.ar/",
+   "name": "Vueltito",
+   "inLanguage": "es-AR",
+   "publisher": {
+    "@id": "https://legios.com.ar/#org"
+   }
+  },
+  {
+   "@type": "SoftwareApplication",
+   "@id": "https://vueltito.legios.com.ar/#app",
+   "name": "Vueltito",
+   "url": "https://vueltito.legios.com.ar/",
+   "description": "Sistema de gestión a medida para comercios y cualquier rubro en Argentina: caja con balanza y lector de códigos, precios y etiquetas de góndola, facturas de proveedores cargadas con una foto, fiado y cuentas de clientes, pedidos a proveedores por WhatsApp, factura electrónica de ARCA y copias de seguridad diarias. Cada cliente tiene su propia versión adaptada a su rubro.",
+   "keywords": "sistema de gestión a medida, software a medida, sistema para comercios, punto de venta, factura electrónica ARCA, sistema para consultorios, sistema para laboratorios, sistema para estudios de arquitectura",
+   "applicationCategory": "BusinessApplication",
+   "applicationSubCategory": "Sistema de gestión a medida (punto de venta y ERP)",
+   "operatingSystem": "Windows, macOS, Linux",
+   "inLanguage": "es-AR",
+   "countriesSupported": "AR",
+   "image": "https://vueltito.legios.com.ar/marca/png/og-1200x630.png",
+   "offers": {
+    "@type": "Offer",
+    "name": "Licencia de Vueltito (mensual, anual o sin vencimiento)",
+    "availability": "https://schema.org/InStock",
+    "areaServed": "AR",
+    "url": "https://wa.me/5493492665908"
+   },
+   "featureList": [
+    "Caja con lector de códigos de barras, balanza y vuelto",
+    "Funciona sin internet",
+    "Facturas de proveedores leídas desde una foto con inteligencia artificial",
+    "Precios con ganancia, redondeo e IVA, y etiquetas de góndola",
+    "Fiado y cuentas corrientes de clientes",
+    "Pedidos sugeridos a proveedores, enviados por WhatsApp",
+    "Factura electrónica de ARCA con CAE y QR",
+    "80.000 códigos de barras de productos argentinos",
+    "Copias de seguridad diarias, revisadas y fuera del negocio",
+    "Actualizaciones automáticas",
+    "Ayuda a distancia segura",
+    "Anda en Windows, Mac o Linux",
+    "Versión a medida para cada cliente y cada rubro"
+   ],
+   "publisher": {
+    "@id": "https://legios.com.ar/#org"
+   }
+  },
+  {
+   "@type": "Service",
+   "@id": "https://vueltito.legios.com.ar/#servicio",
+   "name": "Sistema de gestión a medida",
+   "serviceType": "Sistema de gestión a medida",
+   "description": "Sistemas de gestión a medida para comercios, estudios, laboratorios, consultorios y cualquier rubro, armados sobre la base de Vueltito.",
+   "provider": {
+    "@id": "https://legios.com.ar/#org"
+   },
+   "areaServed": {
+    "@type": "Country",
+    "name": "Argentina"
+   },
+   "brand": {
+    "@type": "Brand",
+    "name": "Vueltito"
+   },
+   "url": "https://vueltito.legios.com.ar/",
+   "isRelatedTo": {
+    "@id": "https://vueltito.legios.com.ar/#app"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://vueltito.legios.com.ar/#preguntas",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "¿Necesito internet para usarlo?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Para cobrar, no: la caja sigue andando y sale el ticket. Internet se usa para la factura electrónica, para leer las facturas de los proveedores y para buscar códigos nuevos, y eso espera a que vuelva."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Tengo que dejar el sistema que uso ahora?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No de golpe. Vueltito se instala al lado y andan los dos a la vez hasta que estén cómodos. Cuando se puede, traemos los productos del sistema anterior con sus códigos y precios."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Vueltito es un sistema a medida o enlatado?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "A medida. Hay una base común con la caja, los precios, las facturas y las copias, y cada cliente tiene su propia versión con lo que su negocio necesita: sus códigos, sus reglas de precios y lo particular de su rubro. Y no sólo para comercios: también hacemos sistemas para estudios, laboratorios, consultorios y cualquier otro rubro."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Qué pasa si se rompe la PC?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Hay una copia de seguridad por día de los últimos 60 días, cada una revisada, y una guardada fuera del negocio. Se vuelve a una copia en la misma PC o en una nueva."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿En qué computadora anda?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "En cualquiera: Windows, Mac o Linux. Se instala en la computadora que ya tenés en el negocio."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Anda con mi lector de códigos y mi ticketera?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Sí. El lector de códigos USB funciona como un teclado y la caja lo reconoce sola, esté donde esté el cursor. El ticket sale por la ticketera que ya tenés."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Quién lee las facturas de los proveedores?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Una inteligencia artificial lee la foto y propone qué producto es cada renglón y cómo quedan los precios. Lo dudoso queda marcado para revisar, y nada cambia hasta que confirmás."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Hace factura electrónica?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Sí, de ARCA, desde la misma caja, con su CAE y su QR. Es opcional: si no la necesitás, no se activa."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Cómo se paga?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Con una licencia mensual, anual o sin vencimiento. Escribinos por WhatsApp contándonos qué vendés y te pasamos el precio para tu negocio."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
 </head>
 <body>
 <div class="progreso" aria-hidden="true"></div>
@@ -746,6 +943,7 @@ a,button,summary,input{touch-action:manipulation;-webkit-tap-highlight-color:tra
     <a href="#que-hace">Qué hace</a>
     <a href="#tranquilidad">Tranquilidad</a>
     <a href="#preguntas">Preguntas</a>
+    <a href="/rubros/">Rubros</a>
     <span class="indicador" aria-hidden="true"></span>
   </nav>
   <button class="tema" type="button" aria-label="Cambiar entre modo claro y oscuro"><svg class="ico sol"><use href="#i-sol"/></svg><svg class="ico luna"><use href="#i-luna"/></svg></button>
@@ -758,8 +956,9 @@ a,button,summary,input{touch-action:manipulation;-webkit-tap-highlight-color:tra
   <a href="#que-hace"><span class="num">02</span>Qué hace<svg class="ico"><use href="#i-flecha"/></svg></a>
   <a href="#libreta"><span class="num">03</span>Antes y ahora<svg class="ico"><use href="#i-flecha"/></svg></a>
   <a href="#tranquilidad"><span class="num">04</span>Tranquilidad<svg class="ico"><use href="#i-flecha"/></svg></a>
-  <a href="#tu-negocio"><span class="num">05</span>Tu negocio<svg class="ico"><use href="#i-flecha"/></svg></a>
-  <a href="#preguntas"><span class="num">06</span>Preguntas<svg class="ico"><use href="#i-flecha"/></svg></a>
+  <a href="#tu-negocio"><span class="num">05</span>A medida<svg class="ico"><use href="#i-flecha"/></svg></a>
+  <a href="#otros-rubros"><span class="num">06</span>Otros rubros<svg class="ico"><use href="#i-flecha"/></svg></a>
+  <a href="#preguntas"><span class="num">07</span>Preguntas<svg class="ico"><use href="#i-flecha"/></svg></a>
   <a class="boton rosa" href="https://wa.me/5493492665908?text=Hola%2C%20quiero%20ver%20Vueltito%20andando%20en%20mi%20negocio." target="_blank" rel="noopener"><svg class="ico"><use href="#i-whatsapp"/></svg>Quiero verlo andando</a>
 </nav>
 <div class="barra-abajo" id="barra-abajo">
@@ -772,9 +971,9 @@ a,button,summary,input{touch-action:manipulation;-webkit-tap-highlight-color:tra
 <section class="portada">
   <div class="env">
     <div class="texto-portada">
-      <span class="etiqueta">Para comercios de todos los rubros</span>
+      <p class="etiqueta">Sistema de gestión a medida, para cualquier rubro</p>
       <h1 class="titulo-portada"><span class="l"><span>El sistema</span></span> <span class="l"><span>del negocio,</span></span> <span class="l"><span>sin <span class="subrayado"><em>vueltas.</em><svg class="trazo" viewBox="0 0 240 24" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M4 15 C 50 5, 92 21, 132 12 S 206 6, 236 13"/></svg></span></span></span></h1>
-      <p class="bajada">Cobrar, poner precios, cargar las facturas de los proveedores con una foto y saber cómo va el mes.</p>
+      <p class="bajada">Cobrar, poner precios, cargar las facturas de los proveedores con una foto y saber cómo va el mes. Con un sistema hecho a la medida de tu negocio, no uno enlatado.</p>
       <div class="acciones">
         <a class="boton rosa" href="https://wa.me/5493492665908?text=Hola%2C%20quiero%20ver%20Vueltito%20andando%20en%20mi%20negocio." target="_blank" rel="noopener">Quiero verlo andando <svg class="ico"><use href="#i-flecha"/></svg></a>
         <a class="boton linea" href="#un-dia"><svg class="ico"><use href="#i-cerrar"/></svg>Ver un día</a>
@@ -979,7 +1178,7 @@ a,button,summary,input{touch-action:manipulation;-webkit-tap-highlight-color:tra
       <div class="tranquilo" data-r><svg class="ico"><use href="#i-copia"/></svg><div><h3>Copia de seguridad diaria</h3><p>Revisada, y una guardada fuera del negocio.</p></div></div>
       <div class="tranquilo" data-r><svg class="ico"><use href="#i-actualiza"/></svg><div><h3>Se actualiza solo</h3><p>Prueba la versión nueva aparte; si algo no anda, no toca nada.</p></div></div>
       <div class="tranquilo" data-r><svg class="ico"><use href="#i-candado"/></svg><div><h3>Ayuda a distancia, segura</h3><p>Por una conexión privada y cifrada, sin abrir nada en el router.</p></div></div>
-      <div class="tranquilo" data-r><svg class="ico"><use href="#i-pc"/></svg><div><h3>Con lo que ya tenés</h3><p>La PC de la caja, tu ticketera y tu lector de códigos.</p></div></div>
+      <div class="tranquilo" data-r><svg class="ico"><use href="#i-pc"/></svg><div><h3>Con lo que ya tenés</h3><p>Tu computadora, con Windows, Mac o Linux, tu ticketera y tu lector de códigos.</p></div></div>
       <div class="tranquilo" data-r><svg class="ico"><use href="#i-casa"/></svg><div><h3>Los datos son del negocio</h3><p>Todo queda en la PC del negocio, no en un sistema ajeno.</p></div></div>
     </div>
   </div>
@@ -988,9 +1187,10 @@ a,button,summary,input{touch-action:manipulation;-webkit-tap-highlight-color:tra
 <section class="bloque" id="tu-negocio">
   <div class="env propio">
     <div class="texto">
-      <span class="etiqueta n"><span class="num">05</span>Tu negocio</span>
-      <h2 style="margin-top:14px">Se le enseña <em>como a alguien nuevo.</em></h2>
-      <p>Los códigos cortos de siempre, los atajos de la caja vieja y las reglas de precios de cada rubro. Se le dicen en castellano, y las ves y confirmás antes de que cuenten.</p>
+      <span class="etiqueta n"><span class="num">05</span>A medida de tu negocio</span>
+      <h2 style="margin-top:14px">Un sistema a medida: <em>se le enseña como a alguien nuevo.</em></h2>
+      <p>Vueltito no es un sistema enlatado: cada comercio tiene su propia versión, armada sobre una base común y adaptada a cómo trabaja. Los códigos cortos de siempre, los atajos de la caja vieja y las reglas de precios de cada rubro. Se le dicen en castellano, y las ves y confirmás antes de que cuenten.</p>
+      <p>Si tu negocio necesita algo que otros no, se le agrega a tu versión. Y las mejoras de la base te siguen llegando solas.</p>
     </div>
     <div class="charla" data-r aria-label="Ejemplo de cómo se le enseña una regla de precios">
       <div class="globo dice"><small><svg class="ico" style="width:14px;height:14px"><use href="#i-chispa"/></svg>Enseñarle algo</small><span class="escrito" id="escrito">“A los quesos ponele 35% de ganancia y redondeá a la centena.”</span></div>
@@ -1001,22 +1201,41 @@ a,button,summary,input{touch-action:manipulation;-webkit-tap-highlight-color:tra
   </div>
 </section>
 
+<section class="bloque" id="otros-rubros" style="padding-top:24px">
+  <div class="env">
+    <div class="titulo">
+      <span class="etiqueta n"><span class="num">06</span>Otros rubros</span>
+      <h2>No sólo comercios: <em>cualquier rubro.</em></h2>
+      <p>La misma base, con su propia versión para cada trabajo.</p>
+    </div>
+    <div class="rubros-lista">
+      <a class="rubro" href="/rubros/arquitectos" data-r><h3>Estudios de arquitectura</h3><p>Obras, clientes, presupuestos, horas y cobros.</p><svg class="ico"><use href="#i-flecha"/></svg></a>
+      <a class="rubro" href="/rubros/laboratorios" data-r><h3>Laboratorios</h3><p>Órdenes, muestras, resultados e insumos con vencimiento.</p><svg class="ico"><use href="#i-flecha"/></svg></a>
+      <a class="rubro" href="/rubros/medicos" data-r><h3>Consultorios médicos</h3><p>Turnos, pacientes, obras sociales y recordatorios.</p><svg class="ico"><use href="#i-flecha"/></svg></a>
+      <a class="rubro" href="/rubros/" data-r><h3>¿Tu rubro?</h3><p>Contanos cómo trabajás y lo armamos.</p><svg class="ico"><use href="#i-flecha"/></svg></a>
+    </div>
+  </div>
+</section>
+
 <section class="bloque" id="preguntas" style="padding-top:24px">
   <div class="env">
     <div class="titulo">
-      <span class="etiqueta n"><span class="num">06</span>Preguntas</span>
+      <span class="etiqueta n"><span class="num">07</span>Preguntas</span>
       <h2>Lo que <em>siempre nos preguntan.</em></h2>
     </div>
     <div class="preguntas">
       <div>
         <details open><summary>¿Necesito internet para usarlo?<span class="mas" aria-hidden="true"></span></summary><p>Para cobrar, no: la caja sigue andando y sale el ticket. Internet se usa para la factura electrónica, para leer las facturas de los proveedores y para buscar códigos nuevos, y eso espera a que vuelva.</p></details>
         <details><summary>¿Tengo que dejar el sistema que uso ahora?<span class="mas" aria-hidden="true"></span></summary><p>No de golpe. Vueltito se instala al lado y andan los dos a la vez hasta que estén cómodos. Cuando se puede, traemos los productos del sistema anterior con sus códigos y precios.</p></details>
+        <details><summary>¿Vueltito es un sistema a medida o enlatado?<span class="mas" aria-hidden="true"></span></summary><p>A medida. Hay una base común con la caja, los precios, las facturas y las copias, y cada cliente tiene su propia versión con lo que su negocio necesita: sus códigos, sus reglas de precios y lo particular de su rubro. Y no sólo para comercios: también hacemos sistemas para estudios, laboratorios, consultorios y cualquier otro rubro.</p></details>
         <details><summary>¿Qué pasa si se rompe la PC?<span class="mas" aria-hidden="true"></span></summary><p>Hay una copia de seguridad por día de los últimos 60 días, cada una revisada, y una guardada fuera del negocio. Se vuelve a una copia en la misma PC o en una nueva.</p></details>
       </div>
       <div>
+        <details><summary>¿En qué computadora anda?<span class="mas" aria-hidden="true"></span></summary><p>En cualquiera: Windows, Mac o Linux. Se instala en la computadora que ya tenés en el negocio.</p></details>
         <details><summary>¿Anda con mi lector de códigos y mi ticketera?<span class="mas" aria-hidden="true"></span></summary><p>Sí. El lector de códigos USB funciona como un teclado y la caja lo reconoce sola, esté donde esté el cursor. El ticket sale por la ticketera que ya tenés.</p></details>
         <details><summary>¿Quién lee las facturas de los proveedores?<span class="mas" aria-hidden="true"></span></summary><p>Una inteligencia artificial lee la foto y propone qué producto es cada renglón y cómo quedan los precios. Lo dudoso queda marcado para revisar, y nada cambia hasta que confirmás.</p></details>
         <details><summary>¿Hace factura electrónica?<span class="mas" aria-hidden="true"></span></summary><p>Sí, de ARCA, desde la misma caja, con su CAE y su QR. Es opcional: si no la necesitás, no se activa.</p></details>
+        <details><summary>¿Cómo se paga?<span class="mas" aria-hidden="true"></span></summary><p>Con una licencia mensual, anual o sin vencimiento. Escribinos por WhatsApp contándonos qué vendés y te pasamos el precio para tu negocio.</p></details>
       </div>
     </div>
   </div>
@@ -1048,6 +1267,7 @@ a,button,summary,input{touch-action:manipulation;-webkit-tap-highlight-color:tra
 <footer>
   <div class="env">
     <span>Vueltito es un producto de <a href="https://legios.com.ar">Legios</a>.</span>
+    <nav class="pie-enlaces" aria-label="Pie"><a href="/rubros/">Rubros</a><a href="/about">Sobre nosotros</a><a href="/contact">Contacto</a><a href="/privacy">Privacidad</a></nav>
     <span>Hecho en Argentina · <a class="subir" href="#">Volver arriba ↑</a></span>
   </div>
   <div class="gigante" aria-hidden="true"><span class="palabra"><span class="letra">v</span><span class="letra">u</span><span class="letra">e</span><span class="letra">l</span><span class="letra">t</span><span class="letra i">ı<svg viewBox="0 0 64 64"><use href="#caramelo"/></svg></span><span class="letra">t</span><span class="letra">o</span></span></div>

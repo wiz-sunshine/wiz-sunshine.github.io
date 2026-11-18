@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>No encontramos esa página · Vueltito</title>
+<meta name="description" content="La página que buscás no existe.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="/marca/png/apple-touch-icon.png">
+<meta property="og:title" content="No encontramos esa página · Vueltito">
+<meta property="og:description" content="La página que buscás no existe.">
+<meta property="og:type" content="website">
+
+<meta property="og:image" content="https://vueltito.legios.com.ar/marca/png/og-1200x630.png">
+<meta property="og:locale" content="es_AR">
+<meta property="og:site_name" content="Vueltito">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#fffafc">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400..800&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/estilo/paginas.css">
+<script>
+  if(location.protocol==='http:'&&location.hostname==='vueltito.legios.com.ar')location.replace('https://'+location.host+location.pathname+location.search+location.hash);
+  (function(){var d=document.documentElement;try{var t=localStorage.getItem('vueltito-tema');if(t==='claro'||t==='oscuro')d.dataset.tema=t}catch(e){}})();
+</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-sol" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-luna" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+</svg>
+<header class="barra">
+  <a class="marca" href="/" aria-label="Vueltito, inicio"><span class="palabra" aria-hidden="true">vuelt<span class="i">ı<img src="/marca/vueltito-caramelo.svg" alt=""></span>to</span></a>
+  <nav class="menu" aria-label="Secciones">
+    <a href="/rubros/">Rubros</a>
+    <a href="/#que-hace">Qué hace</a>
+    <a href="/#preguntas">Preguntas</a>
+  </nav>
+  <button class="tema" type="button" aria-label="Cambiar entre modo claro y oscuro"><svg class="sol"><use href="#i-sol"/></svg><svg class="luna"><use href="#i-luna"/></svg></button>
+  <a class="boton rosa" href="https://wa.me/5493492665908?text=Hola%2C%20llegu%C3%A9%20a%20una%20p%C3%A1gina%20que%20no%20existe%20en%20el%20sitio%20de%20Vueltito." target="_blank" rel="noopener">Quiero verlo</a>
+</header>
+<main>
+<div class="env">
+
+<section class="portada">
+  <p class="etiqueta">Error 404</p>
+  <h1>Esta página <em>no existe.</em></h1>
+  <p class="bajada">Puede que el enlace esté mal escrito o que la hayamos movido.</p>
+</section>
+<ul class="lista"><li><a href="/">La portada</a>: qué es Vueltito y qué hace.</li><li><a href="/rubros/">Rubros</a>: sistemas a medida para cada rubro.</li><li><a href="/contact">Contacto</a>: cómo hablar con nosotros.</li><li><a href="/sitemap.xml">Mapa del sitio</a> y <a href="/llms.txt">resumen para asistentes de IA</a>.</li></ul>
+<section class="cierre">
+  <h2>¿Lo vemos para tu caso?</h2>
+  <p>Contanos qué hacés y qué usás hoy, y te mostramos cómo quedaría.</p>
+  <a class="boton blanco" href="https://wa.me/5493492665908?text=Hola%2C%20llegu%C3%A9%20a%20una%20p%C3%A1gina%20que%20no%20existe%20en%20el%20sitio%20de%20Vueltito." target="_blank" rel="noopener">Escribinos por WhatsApp</a>
+  <p class="numero">o al <a href="https://wa.me/5493492665908?text=Hola%2C%20llegu%C3%A9%20a%20una%20p%C3%A1gina%20que%20no%20existe%20en%20el%20sitio%20de%20Vueltito." target="_blank" rel="noopener">+54 9 3492 66-5908</a></p>
+</section>
+</div>
+</main>
+<footer>
+  <div class="env">
+    <nav aria-label="Pie"><a href="/rubros/">Rubros</a><a href="/about">Sobre nosotros</a><a href="/contact">Contacto</a><a href="/privacy">Privacidad</a></nav>
+    <span>Vueltito es un producto de <a href="https://legios.com.ar">Legios</a>. Hecho en Argentina.</span>
+  </div>
+</footer>
+<script>
+  document.querySelector('.tema').addEventListener('click',function(){
+    var r=document.documentElement,o=r.dataset.tema?r.dataset.tema==='oscuro':matchMedia('(prefers-color-scheme: dark)').matches,n=o?'claro':'oscuro';
+    r.dataset.tema=n;try{localStorage.setItem('vueltito-tema',n)}catch(e){}
+  });
+</script>
+</body>
+</html>

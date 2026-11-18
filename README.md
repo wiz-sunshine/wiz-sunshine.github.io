@@ -16,3 +16,21 @@ ningún cliente. Todos los botones de contacto abren WhatsApp con un mensaje ya 
 (igual que `quartermaster`; la zona está en SSL *Full*). El archivo `CNAME` de este repo le dice a Pages qué dominio
 servir: si algún día se saca el registro, hay que sacar también el archivo, o Pages redirige a un dominio que no
 resuelve.
+
+## Páginas internas, Markdown y agentes
+
+La portada (`index.html`) se escribe a mano. Todo lo demás sale de `herramientas/generar_paginas.py`, que lee el
+texto de `herramientas/contenido.py`:
+
+- `rubros/` (una página por rubro, más `rubros/index.html`), `about`, `contact`, `privacy` y `404`, cada una en
+  `.html` y en `.md`.
+- `index.md` (la portada en Markdown: si cambia `index.html`, revisar `index_md()`), `sitemap.xml`, `llms.txt` y
+  `estilo/paginas.css` (los colores salen de `index.html`).
+
+```sh
+python3 herramientas/generar_paginas.py   # después de tocar contenido.py, paginas.css o la portada
+node --test pruebas/                      # verifica que lo generado esté al día, enlaces, JSON-LD, sitemap y el worker
+```
+
+Las fotos de los sistemas por rubro van en `rubros/fotos/` (ver el README de esa carpeta). `agentes/` tiene el worker
+de Cloudflare que responde Markdown a quien lo pide con `Accept: text/markdown`.
