@@ -1,0 +1,59 @@
+# Reporte a Sentinel en cada push a main: deuda en el código (TODO/FIXME/HACK), tamaño, dependencias y versión
+# del cliente de Sentinel. Necesita el secreto SENTINEL_CLAVE_CI (una instancia con clave "ci" en Sentinel).
+# Viene de wiz-sunshine/sentinel/template: si lo cambiás acá, cambialo también allá.
+name: sentinel
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  reporte:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Medir y mandar
+        env:
+          SENTINEL_CLAVE: ${{ secrets.SENTINEL_CLAVE_CI }}
+          SENTINEL_URL: ${{ vars.SENTINEL_URL || 'https://sentinel.solsoletti.com' }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          if [ -z "$SENTINEL_CLAVE" ]; then echo "Falta el secreto SENTINEL_CLAVE_CI: no se reporta."; exit 0; fi
+          python3 - <<'PY'
+          import json, os, re, subprocess, urllib.request
+          archivos = subprocess.run(["git", "ls-files"], capture_output=True, text=True).stdout.split()
+          codigo = [a for a in archivos if re.search(r"\.(py|ts|tsx|js|jsx|mjs|sql|css|html|astro|vue|svelte)$", a)
+                    and not re.search(r"(^|/)(vendor|static/vendor|dist|node_modules)/|\.min\.js$|sentinel_cliente\.py$|sentinel\.ts$", a)]
+          marcas = {"todo": 0, "fixme": 0, "hack": 0}
+          lineas = 0
+          for a in codigo:
+              try:
+                  t = open(a, encoding="utf-8", errors="ignore").read()
+              except OSError:
+                  continue
+              lineas += t.count("\n")
+              for m in marcas:
+                  marcas[m] += len(re.findall(rf"\b{m}\b", t, re.I))
+          deps = 0
+          if os.path.exists("package.json"):
+              p = json.load(open("package.json"))
+              deps += len(p.get("dependencies", {})) + len(p.get("devDependencies", {}))
+          if os.path.exists("pyproject.toml"):
+              deps += len(re.findall(r'^\s*"[A-Za-z0-9_.\[\]-]+[<>=~! ]', open("pyproject.toml").read(), re.M))
+          version_sdk = None
+          for a in archivos:
+              if a.endswith(("sentinel_cliente.py", "sentinel.ts")):
+                  m = re.search(r'VERSION_CLIENTE\s*=\s*"([^"]+)"', open(a, encoding="utf-8").read())
+                  version_sdk = m and m.group(1)
+          datos = {**marcas, "archivos_codigo": len(codigo), "lineas_codigo": lineas, "dependencias": deps,
+                   "cliente_sentinel": version_sdk, "tiene_tests": any(re.search(r"(^|/)(tests?|__tests__)/|\.test\.|_test\.py$|test_.*\.py$", a) for a in archivos),
+                   "corrida": os.environ["RUN_URL"]}
+          ev = {"tipo": "reporte", "repo": os.environ["GITHUB_REPOSITORY"], "commit": os.environ["GITHUB_SHA"], "datos": datos}
+          req = urllib.request.Request(os.environ["SENTINEL_URL"].rstrip("/") + "/v1/eventos", method="POST",
+                                       data=json.dumps({"eventos": [ev]}).encode(),
+                                       headers={"Authorization": "Bearer " + os.environ["SENTINEL_CLAVE"], "Content-Type": "application/json"})
+          print(json.dumps(datos, indent=2))
+          print(urllib.request.urlopen(req, timeout=20).read().decode())
+          PY

@@ -1,0 +1,14 @@
+{
+  "producto": "landing-vueltito",
+  "nombre": "Landing de Vueltito",
+  "tipo": "sitio",
+  "clientes": [],
+  "responsables": [
+    "sol",
+    "lucio"
+  ],
+  "sondeos": [
+    "https://vueltito.legios.com.ar/"
+  ],
+  "metricas": {}
+}
